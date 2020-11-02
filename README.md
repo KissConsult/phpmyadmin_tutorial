@@ -76,8 +76,6 @@ We will deploy  phpMyAdmin on our cluster
 * Search for **phpMyAdmin** and click on it
 ![search](/search.png)
 
-* Please select IBM Kubernetes Service
-![target](/target-select.png)
 
 * On the application page Click in the _dot_ next to the cluster, you wish to use
 ![Cluster](/cluster-select.png)
