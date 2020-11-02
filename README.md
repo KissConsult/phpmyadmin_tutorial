@@ -1,11 +1,11 @@
-# Get MariaDB on IBM Cloud
+# Get phpMyAdmin on IBM Cloud
 
 You should have an IBM Cloud account, otherwise you can [register here].
-At the end of the tutorial you will have a cluster with MariaDB up and runnning.
+At the end of the tutorial you will have a cluster with phpMyAdmin up and runnning.
 
 1. We will provision a new Kubernetes Cluster for you if, you already have one skip to step **2**
 2. We will deploy  the IBM Cloud Block Storage plug-in, if already have it skip to step **3**
-3. MariaDB deployment
+3. phpMyAdmin deployment
 
 ## Step 1 provision Kubernetes Cluster
 
@@ -67,13 +67,13 @@ The Block Storage plug-in is a persistent, high-performance iSCSI storage that y
 ![block-create](/block-storage-create.png)
  
 
-## Step 3 deploy MariaDB
+## Step 3 deploy phpMyAdmin
   
-We will deploy  MariaDB on our cluster 
+We will deploy  phpMyAdmin on our cluster 
   
 * Click the **Catalog** button on the top 
 * Select **Software** from the catalog
-* Search for **MariaDB** and click on it
+* Search for **phpMyAdmin** and click on it
 ![search](/search.png)
 
 * Please select IBM Kubernetes Service
@@ -89,7 +89,7 @@ We will deploy  MariaDB on our cluster
 
 ![dr-resource](/details-resource.png)
 
-* Give **tags** to your MariaDB, for more information visit [tags]
+* Give **tags** to your phpMyAdmin, for more information visit [tags]
 
 ![nginx-tags](/details-tags.png)
 
@@ -97,22 +97,22 @@ We will deploy  MariaDB on our cluster
 
 ![def-val](/parameters.png)
 
-* Please set the MariaDB root password in the parameters
-![pass](/root-password.png)
+* Please set your deployment to LoadBalancer in the parameters, so you will get an external IP
+![loadB](/loadbalancer.png)
 
 * After finishing everything, **tick** the box next to the agreements and click **install**
 
 ![Install](/aggreement-create.png)
 
-* The MariaDB workspace will start installing, wait a couple of minutes 
+* The phpMyAdmin workspace will start installing, wait a couple of minutes 
 
 ![MariaDB-install](/in-progress.png)
 
-* Your  MariaDB workspace has been successfully deployed
+* Your  phpMyAdmin workspace has been successfully deployed
 
 ![maria-finsihed](/done.png)
 
-## Verify MariaDB installation
+## Verify phpMyAdminB installation
 
 * Go to [Resources] in your browser 
 * Click on **Clusters**
@@ -150,24 +150,13 @@ $ kubectl get service -n NAMESPACE
 ```
 ![get-service](/get-service.png)
 
+* Please copy the external IP into a browser and you will be at the phpMyAdmin login page
 
-* Enter your pod with bash , please replace PODNAME with your mariadb pod's name
-
- ```sh
-$ kubectl exec --stdin --tty PODNAME -n NAMESPACE -- /bin/bash
-```
-![bash](/bash.png)
-
-* After you are in your pod please enter enter Mariadb and enter your root password after the prompt
-
- ```sh
-$ mysql -u root -p
-```
-![in](/welcome.png)
+![in](/login.png)
 
 
 
-You have succesfully deployed MariaDB IBM Cloud! 
+You have succesfully deployed phpMyAdmin IBM Cloud! 
 
 
 
@@ -181,3 +170,4 @@ You have succesfully deployed MariaDB IBM Cloud!
    [enable Vlan spanning]: <https://cloud.ibm.com/docs/vlans?topic=vlans-vlan-spanning#vlan-spanning>
    [endpoints]: <https://cloud.ibm.com/docs/account?topic=account-service-endpoints-overview>
    [tags]: <https://cloud.ibm.com/docs/account?topic=account-tag>
+   [resource groups]: <https://cloud.ibm.com/docs/account?topic=account-account_setup#bp_resourcegroups>
